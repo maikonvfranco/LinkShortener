@@ -1,11 +1,7 @@
 import { generateCode } from "@/lib/generate-code";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@/app/generated/prisma/client";
-import { z } from "zod";
-
-const createLinkSchema = z.object({
-  url: z.string().url(),
-});
+import { createLinkSchema } from "@/lib/schemas";
 
 export async function POST(request: Request) {
   const body = await request.json();
